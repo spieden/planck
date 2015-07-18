@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2EED97455BCF5243A90EB741 /* NSString+JSExports.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EED960F7DED959B297E75BF /* NSString+JSExports.m */; };
 		ED72D3D11B57D8FF00BF6EA2 /* Planck.m in Sources */ = {isa = PBXBuildFile; fileRef = ED72D3D01B57D8FF00BF6EA2 /* Planck.m */; };
 		ED9C14901B57C21E0092866D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ED9C148F1B57C21E0092866D /* main.m */; };
 		EDE838561B57C5E2002F56D7 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDE838551B57C5E2002F56D7 /* JavaScriptCore.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2EED960F7DED959B297E75BF /* NSString+JSExports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JSExports.m"; sourceTree = "<group>"; };
+		2EED985BADD3006607CEF239 /* NSString+JSExports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JSExports.h"; sourceTree = "<group>"; };
 		37B72F5B56BF19E35DA7188F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C67726A927E96E71200D17FC /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF90590CB4E236DA7B7C153 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +94,8 @@
 				ED9C148F1B57C21E0092866D /* main.m */,
 				ED72D3CF1B57D8FF00BF6EA2 /* Planck.h */,
 				ED72D3D01B57D8FF00BF6EA2 /* Planck.m */,
+				2EED960F7DED959B297E75BF /* NSString+JSExports.m */,
+				2EED985BADD3006607CEF239 /* NSString+JSExports.h */,
 			);
 			path = planck;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			files = (
 				ED72D3D11B57D8FF00BF6EA2 /* Planck.m in Sources */,
 				ED9C14901B57C21E0092866D /* main.m in Sources */,
+				2EED97455BCF5243A90EB741 /* NSString+JSExports.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

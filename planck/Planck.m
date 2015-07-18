@@ -11,6 +11,7 @@
 #import "Planck.h"
 #import "ABYContextManager.h"
 #import "ABYServer.h"
+#import "NSString+JSExports.h"
 
 @implementation Planck
 
@@ -26,7 +27,7 @@
     NSURL* outURL = [NSURL URLWithString:@"planck-cljs-runtime"];
     
     if (![fm fileExistsAtPath:[outURL path]]) {
-        outURL = [NSURL URLWithString:@"/Users/mfikes/Projects/planck/ClojureScript/planck/out"];
+        outURL = [NSURL URLWithString:@"/Users/dacc/src/planck/ClojureScript/planck/out"];
     }
     
     ABYContextManager* contextManager = [[ABYContextManager alloc] initWithContext:JSGlobalContextCreate(NULL)
@@ -52,7 +53,7 @@
     [self processFile:macrosJsPath calling:nil inContext:context];
     
     [self requireAppNamespaces:context];
-    
+
     JSValue* setupCljsUser = [self getValue:@"setup-cljs-user" inNamespace:@"planck.core" fromContext:context];
     NSAssert(!setupCljsUser.isUndefined, @"Could not find the setup-cljs-user function");
     [setupCljsUser callWithArguments:@[]];
@@ -92,12 +93,15 @@
     context[@"PLANCK_PRINT_FN"] = ^(NSString *message) {
         // supressing
     };
-    
+
+    context[@"NSString"] = [NSString class];
+    context[@"NSUTF8StringEncoding"] = @(NSUTF8StringEncoding);
+
     [context evaluateScript:@"cljs.core.set_print_fn_BANG_.call(null,PLANCK_PRINT_FN);"];
-    
+
     [readEvalPrintFn callWithArguments:@[@"(defn slurp \"Slurps a file\" [filename] (js/PLANCK_SLURP_FN filename))"]];
     [readEvalPrintFn callWithArguments:@[@"(defn spit \"Spits a file\" [filename content] (js/PLANCK_SPIT_FN filename content) nil)"]];
-    
+
     
     context[@"PLANCK_PRINT_FN"] = ^(NSString *message) {
         if (!evalArg || ![message isEqualToString:@"nil"]) {
